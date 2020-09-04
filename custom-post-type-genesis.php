@@ -26,7 +26,7 @@ function create_custom_post_type() {
     'public' => true,
     'has_archive' => true,
     'menu_icon' => 'dashicons-universal-access-alt',
-		'show_in_rest' => true,
+	    'show_in_rest' => true, //Gutenberg Support
 	'rewrite' => array('slug' => 'behandlung'),
 	'supports'  => array( 'title', 'editor', 'thumbnail' , 'custom-fields', 'excerpt', 'genesis-seo', 'genesis-cpt-archives-settings' )
 	);
