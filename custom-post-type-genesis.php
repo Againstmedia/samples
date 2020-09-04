@@ -1,4 +1,6 @@
-/*Custom Post Type Behandlungen*/
+<?php //do not include opening tag
+
+/* Custom Post Type Behandlungen */
 
 add_action( 'init', 'create_custom_post_type' );
 
