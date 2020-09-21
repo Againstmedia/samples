@@ -1,0 +1,50 @@
+/* Utility Bar
+--------------------------------------------- */
+
+.utility-bar {
+	background-color: var(--main-color);
+	color: #fffffe;
+	font-size: 12px;
+	padding: 5px 20px;
+	font-weight: 600;
+}
+
+.utility-bar a {
+	color: #fffffe;
+}
+
+.utility-bar a:hover {
+	text-decoration: none;
+}
+
+.utility-bar-right {
+	width: 100%;
+}
+
+/*.utility-bar-left {
+	width: 30%;
+}*/
+
+.utility-bar-left p,
+.utility-bar-right p {
+	margin-bottom: 0;
+}
+
+/*.utility-bar-left {
+	float: left;
+}*/
+
+.utility-bar-right {
+	/*float: right;*/
+	text-align: right;
+}
+
+.utility-bar input[type="search"] {
+	background: inherit;
+	padding: 10px 0 0;
+	padding: 1.0rem 0 0;
+}
+
+.utility-bar .widget {
+	margin-bottom: 0;
+}
