@@ -1,0 +1,33 @@
+<?php //do not include opening tag 
+
+// Set a minimum amount of oder based on shipping postcode before checking out
+
+add_action( 'woocommerce_check_cart_items', 'cw_min_num_products' );
+
+// Only run in the Cart or Checkout pages
+function cw_min_num_products() {
+
+	if( is_cart() || is_checkout() ) {
+		global $woocommerce;
+
+		// Set the minimum order amount and shipping postcode before checking out
+        $minimum = 35;
+	  	$shipping_postcode 	= array('83071', '83059', '83064', '83115', '83101', '83083', '83134', '83135', '83109', '83043', '83052', '83737', '83075', '83122', '83139', '83569', '83104', '83128', '83093', '83253', '83209', '83233', '83229', '83112', '83126', '83131', '83098', '83730', '85617', '83543', '83550', '83052');
+
+		// Defining var total amount
+        $cart_tot_order = WC()->cart->total;
+
+	  	// Compare values and add an error in Cart's total amount
+	    // happens to be less than the minimum required before checking out.
+		// Will display a message along the lines
+
+		if( $cart_tot_order < $minimum && in_array( WC()->customer->get_shipping_postcode(), $shipping_postcode )  ) {
+			// Display error message
+	        wc_add_notice( sprintf( '<strong class="mindestbstlg" >Eine Mindestbestellung von %s€ ist erforderlich, bevor du zur Kasse gehst.</strong>'
+	        	. '<br />Aktuelle Bestellung: %s€',
+	        	$minimum,
+                $cart_tot_order	),
+	        'error' );
+		}
+	}
+}
