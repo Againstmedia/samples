@@ -1,0 +1,11 @@
+<?php
+
+add_filter( 'ngettext', 'am_translate_tag_taxonomy', 9999, 5 );
+ 
+function am_translate_tag_taxonomy( $translation, $single, $plural, $number, $domain ) {
+   if ( is_product() && 'woocommerce' === $domain ) {
+      // This will only trigger on the WooCommerce single product page
+      $translation = ( 1 === $number ) ? str_ireplace( 'Schlagwort:', 'Produzent:', $translation ) : str_ireplace( 'Schlagwörter:', 'Produzenten:', $translation );
+   }
+   return $translation;
+}
